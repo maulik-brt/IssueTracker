@@ -1,0 +1,11 @@
+${PODS_ROOT}/Target Support Files/Pods-IssueTracker/Pods-IssueTracker-resources.sh
+${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/ColorCollectionViewCell.xib
+${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/EmojiCollectionViewCell.xib
+${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/icomoon.ttf
+${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/LaunchScreen.storyboard
+${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/PhotoCropEditorBorder.png
+${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/PhotoCropEditorBorder@2x.png
+${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/PhotoCropEditorBorder@3x.png
+${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/PhotoEditorViewController.xib
+${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/StickerCollectionViewCell.xib
+${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/StickersViewController.xib
