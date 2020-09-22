@@ -1,0 +1,36 @@
+PODS:
+  - Alamofire (5.2.2)
+  - IBAnimatable (6.1.0)
+  - iOSPhotoEditor (1.0.0)
+  - IQKeyboardManagerSwift (6.5.6)
+  - ReachabilitySwift (5.0.0)
+  - Toast-Swift (5.0.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - IBAnimatable
+  - iOSPhotoEditor
+  - IQKeyboardManagerSwift
+  - ReachabilitySwift
+  - Toast-Swift
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - IBAnimatable
+    - iOSPhotoEditor
+    - IQKeyboardManagerSwift
+    - ReachabilitySwift
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  IBAnimatable: 99dddd4c0625884a301ba3ecbc1615f8a390368e
+  iOSPhotoEditor: 2951f35246a31dcb428b6292248a9c065582d03e
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+
+PODFILE CHECKSUM: 6cf942f9c561ceb7461c97e2b82591badea16ba4
+
+COCOAPODS: 1.10.0.rc.1

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ygh-pZ-4JI">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="mHv-gh-dIn">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="zsN-dw-kyZ" customClass="ViewController" customModule="IssueReport" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AY2-xc-3r6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55M-po-bFT">
+                                <rect key="frame" x="153" y="460" width="108" height="30"/>
+                                <state key="normal" title="Report Problem"/>
+                                <connections>
+                                    <action selector="btnReportIssue:" destination="zsN-dw-kyZ" eventType="touchUpInside" id="NUf-Xr-owA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CZa-Oa-m7F"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="55M-po-bFT" firstAttribute="centerX" secondItem="CZa-Oa-m7F" secondAttribute="centerX" id="R0k-Lz-da6"/>
+                            <constraint firstItem="55M-po-bFT" firstAttribute="centerY" secondItem="CZa-Oa-m7F" secondAttribute="centerY" id="VUf-6F-F1h"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mCs-5s-l7S"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vwV-7m-GLe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7657.971014492754" y="-423.21428571428572"/>
+        </scene>
+        <!--Feedback View Controller-->
+        <scene sceneID="Jdn-NB-TDr">
+            <objects>
+                <viewController storyboardIdentifier="BWFeedbackViewController" id="xHw-V9-2xr" customClass="BWFeedbackViewController" customModule="IssueReport" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N7n-WA-Dla">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mM4-pP-mtL" customClass="AnimatableTextView" customModule="IBAnimatable">
+                                <rect key="frame" x="20" y="64" width="374" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="hpe-xL-bdp"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" name="ThemeBlueColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="What went wrong?"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="ThemeBlueColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b9n-bx-UEy">
+                                <rect key="frame" x="50" y="184" width="314" height="548"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4d8-aQ-e2i" customClass="AnimatableButton" customModule="IBAnimatable">
+                                <rect key="frame" x="304" y="752" width="60" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="pkw-Cq-o51"/>
+                                    <constraint firstAttribute="height" constant="60" id="qT7-on-tPr"/>
+                                </constraints>
+                                <state key="normal" image="Gallary">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="ThemeRedColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="_borderSides" value="top, bottom, left , right"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnAddimageAction:" destination="xHw-V9-2xr" eventType="touchUpInside" id="jv1-ub-D3U"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Media" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgq-0g-o3M">
+                                <rect key="frame" x="299.5" y="817" width="69" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsn-wU-1PR" customClass="AnimatableButton" customModule="IBAnimatable">
+                                <rect key="frame" x="50" y="752" width="60" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4qu-I6-TjZ"/>
+                                    <constraint firstAttribute="width" constant="60" id="tJh-bQ-w2D"/>
+                                </constraints>
+                                <state key="normal" image="Edit">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="ThemeRedColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="_borderSides" value="top, bottom, left , right"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnEditimageAction:" destination="xHw-V9-2xr" eventType="touchUpInside" id="OPC-ob-jnr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Markup Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b33-tP-k6i">
+                                <rect key="frame" x="34" y="817" width="92" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Tba-0d-gh6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Tba-0d-gh6" firstAttribute="bottom" secondItem="4d8-aQ-e2i" secondAttribute="bottom" constant="50" id="43O-qa-omo"/>
+                            <constraint firstItem="mM4-pP-mtL" firstAttribute="leading" secondItem="Tba-0d-gh6" secondAttribute="leading" constant="20" id="4Vf-IB-xol"/>
+                            <constraint firstItem="b33-tP-k6i" firstAttribute="top" secondItem="qsn-wU-1PR" secondAttribute="bottom" constant="5" id="CiP-7h-EDH"/>
+                            <constraint firstItem="b33-tP-k6i" firstAttribute="centerX" secondItem="qsn-wU-1PR" secondAttribute="centerX" id="H9X-nh-3hg"/>
+                            <constraint firstItem="mM4-pP-mtL" firstAttribute="top" secondItem="Tba-0d-gh6" secondAttribute="top" constant="20" id="Hzz-sY-1hj"/>
+                            <constraint firstItem="tgq-0g-o3M" firstAttribute="centerX" secondItem="4d8-aQ-e2i" secondAttribute="centerX" id="JOQ-d9-gEm"/>
+                            <constraint firstItem="b9n-bx-UEy" firstAttribute="top" secondItem="mM4-pP-mtL" secondAttribute="bottom" constant="20" id="SRI-nU-mqp"/>
+                            <constraint firstItem="4d8-aQ-e2i" firstAttribute="trailing" secondItem="b9n-bx-UEy" secondAttribute="trailing" id="XpO-gS-msS"/>
+                            <constraint firstItem="b9n-bx-UEy" firstAttribute="centerX" secondItem="mM4-pP-mtL" secondAttribute="centerX" id="cab-Mx-I38"/>
+                            <constraint firstItem="Tba-0d-gh6" firstAttribute="bottom" secondItem="qsn-wU-1PR" secondAttribute="bottom" constant="50" id="d6A-J5-cKF"/>
+                            <constraint firstItem="4d8-aQ-e2i" firstAttribute="top" secondItem="b9n-bx-UEy" secondAttribute="bottom" constant="20" id="d8l-Xi-tof"/>
+                            <constraint firstItem="Tba-0d-gh6" firstAttribute="trailing" secondItem="b9n-bx-UEy" secondAttribute="trailing" constant="50" id="mUE-RF-I9o"/>
+                            <constraint firstItem="tgq-0g-o3M" firstAttribute="top" secondItem="4d8-aQ-e2i" secondAttribute="bottom" constant="5" id="rP9-jQ-Pub"/>
+                            <constraint firstItem="Tba-0d-gh6" firstAttribute="trailing" secondItem="mM4-pP-mtL" secondAttribute="trailing" constant="20" id="u5L-wm-rXt"/>
+                            <constraint firstItem="b9n-bx-UEy" firstAttribute="leading" secondItem="Tba-0d-gh6" secondAttribute="leading" constant="50" id="uVM-Ie-tNL"/>
+                            <constraint firstItem="qsn-wU-1PR" firstAttribute="top" secondItem="b9n-bx-UEy" secondAttribute="bottom" constant="20" id="xCN-P5-RVY"/>
+                            <constraint firstItem="qsn-wU-1PR" firstAttribute="leading" secondItem="b9n-bx-UEy" secondAttribute="leading" id="yWf-zb-Vsk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fBs-mu-Zy1"/>
+                    <connections>
+                        <outlet property="btnAdd" destination="4d8-aQ-e2i" id="2wM-sr-V7u"/>
+                        <outlet property="btnEdit" destination="qsn-wU-1PR" id="qWl-gK-hWi"/>
+                        <outlet property="imgReport" destination="b9n-bx-UEy" id="GWf-BK-WFm"/>
+                        <outlet property="txtReport" destination="mM4-pP-mtL" id="qra-kD-Csy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7xP-NI-pc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8323.188405797102" y="-423.21428571428572"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WRp-eS-wwr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ygh-pZ-4JI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9QJ-aK-bKH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zsN-dw-kyZ" kind="relationship" relationship="rootViewController" id="DlZ-d3-8iL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tbo-Ua-FZe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6750.7246376811599" y="-423.21428571428572"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="4d8-aQ-e2i">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="qsn-wU-1PR">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Edit" width="30" height="30"/>
+        <image name="Gallary" width="30" height="30"/>
+        <namedColor name="ThemeBlueColor">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ThemeRedColor">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
