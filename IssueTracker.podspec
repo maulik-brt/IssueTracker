@@ -24,6 +24,5 @@ Pod::Spec.new do |s|
 
 s.source_files = "IssueTracker/**/*.{swift}"
 s.resources = "IssueTracker/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
-
      s.swift_versions = "5.0"
 end
