@@ -36,7 +36,8 @@ enum AppStoryboard : String {
     
       // MARK: - Declaration
     var instance : UIStoryboard {
-        return UIStoryboard(name: self.rawValue, bundle: Bundle.main)
+        let bundle = Bundle(for: BWFeedback.self)
+        return UIStoryboard(name: self.rawValue, bundle: bundle)
     }
     
 }
