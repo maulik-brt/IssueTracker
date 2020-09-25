@@ -2,7 +2,7 @@
 //  IssueTracker.h
 //  IssueTracker
 //
-//  Created by Maulik Vekariya on 22/09/20.
+//  Created by Bluewhale-iOS-Team on 22/09/20.
 //
 
 #import <Foundation/Foundation.h>
