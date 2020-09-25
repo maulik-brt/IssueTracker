@@ -10,37 +10,53 @@ import IBAnimatable
 import AVKit
 import CoreServices
 import iOSPhotoEditor
-
+import IQKeyboardManagerSwift
+import Reachability
 
 internal class  BWFeedbackViewController: UIViewController {
     
     // MARK: Variables
     
-    private var imagePicker = UIImagePickerController()
     @IBOutlet var imgReport: UIImageView!
+    @IBOutlet var txtSubject: AnimatableTextField!
     @IBOutlet var txtReport: AnimatableTextView!
     @IBOutlet var btnAdd: AnimatableButton!
     @IBOutlet var btnEdit: AnimatableButton!
+    
     var isImageChanged : Bool = false
     var isVideo : Bool = false
-    var project_id = String()
+    var strProject_id = String()
+    var strBuild_Number = String()
+    var strDevice_Info = String()
+    var strReportedBy = String()
+    var strConnectiontype = String()
+    var strEnvironment = String()
+    var strTimeZone = String()
+    var strFixed_version_id = String()
+    var reachability: Reachability!
     var videoURL = NSURL()
+    let hostNames = [nil, "google.com", "invalidhost"]
+    var hostIndex = 0
+    var internetConnection : Bool = false
+
+    private var imagePicker = UIImagePickerController()
     private var bwfeedbackModel: BWFeedbackModel = BWFeedbackModel()
-    
+ 
     // MARK: Setup
-    
     override public func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        startHost(at: 0)
         
     }
     
-    
-    
-    private func setup() {
+   private func setup() {
         title = "Report a Problem"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Send", style: .plain, target: self, action: #selector(send))
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleDismiss))
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = true
+        strTimeZone = Calendar.current.timeZone.localizedName(for: .standard, locale: Locale(identifier: "en"))!
     }
     
     
@@ -52,24 +68,26 @@ internal class  BWFeedbackViewController: UIViewController {
     
     @objc private func send() {
         
-        if (self.txtReport.text?.isEmpty)!{
-            displayTost(strMessage: "Please add description about your issue.")
+        if (self.txtSubject.text?.isEmpty)!{
+            displayTost(strMessage: "Please add subject about your issue.")
             return
         }
         
-        if self.imgReport.image != nil {
-            let info = "Device: \(self.bwfeedbackModel.deviceModel)\n" + "iOS: \(self.bwfeedbackModel.deviceOs)\n" + "App Name: \(self.bwfeedbackModel.appName)\n" + "App Version: \(self.bwfeedbackModel.appVersion)\n" + "App Build: \(self.bwfeedbackModel.appBuild)\n"
-            print(info)
-            print(self.txtReport.text as Any)
-            print(self.imgReport.image as Any)
-            
-            let dict = ["image": self.imgReport.image as Any,
-                        "info": info,
-                        "subject":self.txtReport.text as Any,
-                        "project_id":project_id,
-                        "videoURL":self.videoURL,
-                        "isVideo":self.isVideo] as [String: AnyObject]
-            
+        var dict = ["subject":self.txtSubject.text as Any,
+                    "description":self.txtReport.text as Any,
+                    "project_id":strProject_id,
+                    "videoURL":self.videoURL,
+                    "isVideo":self.isVideo,
+                    "Build_Number":strBuild_Number,
+                    "Device_Info":strDevice_Info,
+                    "ReportedBy":strReportedBy,
+                    "Connectiontype":strConnectiontype,
+                    "Environment":strEnvironment,
+                    "Fixed_version_id":strFixed_version_id,
+                    "TimeZone":strTimeZone] as [String: AnyObject]
+        
+        if self.imgReport.image != nil && self.txtReport.text.isEmpty == false{
+            dict["image"] = self.imgReport.image
             BWWebAPI.sharedService.uploadMedia(dict) { (result) in
                 print(result)
                 self.dismiss(animated: true) {
@@ -79,10 +97,19 @@ internal class  BWFeedbackViewController: UIViewController {
                 print(Error.localizedDescription)
             }
         }else{
-            displayTost(strMessage: "Please select media.")
+            
+            BWWebAPI.sharedService.createIssue(dict, token: "") { (result) in
+                print(result)
+                self.dismiss(animated: true) {
+                    
+                }
+            } onFailure: { (Error) in
+                print(Error.localizedDescription)
+                self.dismiss(animated: true) {
+                    
+                }
+            }
         }
-        
-        
     }
     
     @IBAction func btnAddimageAction(_ sender: Any) {
@@ -100,7 +127,9 @@ internal class  BWFeedbackViewController: UIViewController {
             photoEditor.modalPresentationStyle = .fullScreen
             present(photoEditor, animated: true, completion: nil)
         }else{
-            displayTost(strMessage: "Please select media.")
+            if isVideo == false{
+                displayTost(strMessage: "Please select media.")
+            }
         }
     }
     
@@ -123,6 +152,81 @@ internal class  BWFeedbackViewController: UIViewController {
         } catch { }
         return UIImage()
     }
+    
+    
+    // MARK: - Internet Connection Method
+    //-----------------------------
+    
+    func startHost(at index: Int) {
+        stopNotifier()
+        setupReachability(hostNames[index], useClosures: true)
+        startNotifier()
+        
+    }
+    
+    func setupReachability(_ hostName: String?, useClosures: Bool) {
+        let reachability: Reachability?
+        if let hostName = hostName {
+            reachability = try! Reachability(hostname: hostName)
+        } else {
+            reachability = try! Reachability()
+        }
+        self.reachability = reachability
+        
+        if useClosures {
+            reachability?.whenReachable = { reachability in
+                self.updateLabelColourWhenReachable(reachability)
+            }
+            reachability?.whenUnreachable = { reachability in
+                self.updateLabelColourWhenReachable(reachability)
+            }
+        } else {
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(reachabilityChanged(_:)),
+                name: .reachabilityChanged,
+                object: reachability
+            )
+        }
+    }
+    
+    func startNotifier() {
+        // print("--- start notifier")
+        do {
+            try reachability?.startNotifier()
+        } catch {
+            // print("Unable to start\nnotifier")
+            return
+        }
+    }
+    
+    func stopNotifier() {
+        // print("--- stop notifier")
+        reachability?.stopNotifier()
+        NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: nil)
+        reachability = nil
+    }
+    
+    func updateLabelColourWhenReachable(_ reachability: Reachability) {
+        if reachability.connection == .wifi {
+            strConnectiontype = "Wifi"
+        }else if reachability.connection == .cellular{
+            strConnectiontype = "Mobile Data"
+        }else{
+            strConnectiontype = "None"
+        }
+        
+    }
+    
+    
+    @objc func reachabilityChanged(_ note: Notification) {
+        let reachability = note.object as! Reachability
+        
+        updateLabelColourWhenReachable(reachability)
+        
+    }
+    
+    
     
 }
 

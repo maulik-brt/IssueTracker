@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func btnReportIssue(_ sender: Any) {
-        BWFeedback.shared.present(self, "test-project")
+        BWFeedback.shared.present(self, "test-project", "1.0 (1)", "iOS", "Rajesh", "Staging","157")
      }
     
 }

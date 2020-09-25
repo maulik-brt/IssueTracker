@@ -97,6 +97,7 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/ColorCollectionViewCell.xib"
   install_resource "${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/EmojiCollectionViewCell.xib"
   install_resource "${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/icomoon.ttf"
@@ -109,6 +110,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/StickersViewController.xib"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/ColorCollectionViewCell.xib"
   install_resource "${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/EmojiCollectionViewCell.xib"
   install_resource "${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/icomoon.ttf"

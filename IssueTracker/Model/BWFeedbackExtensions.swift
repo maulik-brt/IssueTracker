@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import Toast_Swift
 
- 
 extension Bundle {
     var releaseVersionNumber: String {
         return infoDictionary?["CFBundleShortVersionString"] as? String ?? ""

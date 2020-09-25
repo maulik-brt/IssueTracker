@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-IssueTracker/Pods-IssueTracker-resources.sh
+${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle
 ${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/ColorCollectionViewCell.xib
 ${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/EmojiCollectionViewCell.xib
 ${PODS_ROOT}/iOSPhotoEditor/iOSPhotoEditor/icomoon.ttf

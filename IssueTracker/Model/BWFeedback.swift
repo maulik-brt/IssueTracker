@@ -19,25 +19,21 @@ public class BWFeedback {
     public var cancelButtonTitle = "Cancel"
     public var navigationController = UINavigationController()
     
-    public func present(_ sender: UIViewController, _ projectID: String) {
+    public func present(_ sender: UIViewController, _ projectID: String, _ Build_Number: String, _ Device_Info: String, _ ReportedBy: String, _ Environment: String, _ fixed_version_id: String) {
         
         let storyboard = AppStoryboard.Main.instance
         let viewController = storyboard.instantiateViewController(withIdentifier: "BWFeedbackViewController") as! BWFeedbackViewController
-        viewController.project_id = projectID
-        let navigationController = UINavigationController(rootViewController: viewController)
+        viewController.strProject_id = projectID
+        viewController.strBuild_Number = Build_Number
+        viewController.strDevice_Info = Device_Info
+        viewController.strReportedBy = ReportedBy
+        viewController.strEnvironment = Environment
+        viewController.strFixed_version_id = fixed_version_id
+
+         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
         sender.present(navigationController, animated: true) {
             
         }
     }
-}
-enum AppStoryboard : String {
-    case Main = "Main"
-    
-      // MARK: - Declaration
-    var instance : UIStoryboard {
-        let bundle = Bundle(for: BWFeedback.self)
-        return UIStoryboard(name: self.rawValue, bundle: bundle)
-    }
-    
 }

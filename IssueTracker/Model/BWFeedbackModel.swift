@@ -12,8 +12,7 @@ import SystemConfiguration
 
 public class BWFeedbackModel {
     
-    var subject: String = ""
-    var details: String = ""
+  
     var attachments: UIImage?
     
     var deviceModel: String = UIDevice.modelName
@@ -60,12 +59,24 @@ struct ApiMethodName {
     
     static let kUpload = "uploads.json?"
     static let kIssue = "issues.json"
-    static let kVideoname = "filename=issue.mp4"
-    static let kImagename = "filename=abc.jpg"
+    static let kVideoname = "filename=attachment.mp4"
+    static let kImagename = "filename=attachment.jpg"
     
     
 }
 
 struct InternetAlert {
     static let kInternetMessage = "Please check Internet connection."
+}
+
+
+enum AppStoryboard : String {
+    case Main = "Main"
+    
+      // MARK: - Declaration
+    var instance : UIStoryboard {
+        let bundle = Bundle(for: BWFeedback.self)
+        return UIStoryboard(name: self.rawValue, bundle: bundle)
+    }
+    
 }

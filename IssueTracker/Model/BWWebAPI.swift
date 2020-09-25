@@ -75,17 +75,29 @@ class BWWebAPI {
         
         let sub = Dict["subject"] as! String
         let project_id = Dict["project_id"] as! String
+        let description = Dict["description"] as! String
+        let Build_Number = Dict["Build_Number"] as! String
+        let Device_Info = Dict["Device_Info"] as! String
+        let ReportedBy = Dict["ReportedBy"] as! String
+        let Connectiontype = Dict["Connectiontype"] as! String
+        let Environment = Dict["Environment"] as! String
+        let TimeZone = Dict["TimeZone"] as! String
+        let Fixed_version_id = Dict["Fixed_version_id"] as! String
+
+        
+        let Desc = "\(description)\n\n Build Number: \(Build_Number)\nDevice Info: \(Device_Info)\nReported By: \(ReportedBy)\nConnection type: \(Connectiontype)\nEnvironment: \(Environment)\nTimeZone: \(TimeZone)"
+        let strSub = "iOS - \(sub)"
         
         if isVideo == true{
             dictUpload = [
                 "token" : token,
-                "filename": "issue.mp4",
+                "filename": "attachment.mp4",
                 "content_type": "video/mp4"
             ]
         }else{
             dictUpload = [
                 "token" : token,
-                "filename": "xyz.jpg",
+                "filename": "attachment.jpg",
                 "content_type": "image/jpg"
             ]
         }
@@ -94,7 +106,9 @@ class BWWebAPI {
         
         let params : NSDictionary = ["issue" : [
             "project_id" : project_id,
-            "subject" : sub,
+            "subject" : strSub,
+            "description": Desc,
+            "fixed_version_id":Fixed_version_id,
             "uploads" : arrUpload
         ]]
         

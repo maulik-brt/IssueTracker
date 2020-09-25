@@ -4,6 +4,7 @@ PODS:
   - iOSPhotoEditor (1.0.0)
   - IQKeyboardManagerSwift (6.5.6)
   - ReachabilitySwift (5.0.0)
+  - SVProgressHUD (2.2.5)
   - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
@@ -12,6 +13,7 @@ DEPENDENCIES:
   - iOSPhotoEditor
   - IQKeyboardManagerSwift
   - ReachabilitySwift
+  - SVProgressHUD
   - Toast-Swift
 
 SPEC REPOS:
@@ -21,6 +23,7 @@ SPEC REPOS:
     - iOSPhotoEditor
     - IQKeyboardManagerSwift
     - ReachabilitySwift
+    - SVProgressHUD
     - Toast-Swift
 
 SPEC CHECKSUMS:
@@ -29,8 +32,9 @@ SPEC CHECKSUMS:
   iOSPhotoEditor: 2951f35246a31dcb428b6292248a9c065582d03e
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: be6a2e5b63dc309afa795d579b3b5128342db56b
+PODFILE CHECKSUM: 99547466020be6ff9f9175bebbd77aa7247b8463
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0.rc.1

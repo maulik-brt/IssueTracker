@@ -2,12 +2,13 @@ platform :ios, '12.0'
 
 target 'IssueTracker' do
   
-pod 'IBAnimatable'
-    pod 'Alamofire', '~> 5.2'
-    pod 'ReachabilitySwift'
-    pod 'IQKeyboardManagerSwift'
-    pod 'Toast-Swift'
-    pod 'iOSPhotoEditor'
+  pod 'IBAnimatable'
+ pod 'Alamofire', '~> 5.2'
+ pod 'SVProgressHUD'
+ pod 'ReachabilitySwift'
+ pod 'IQKeyboardManagerSwift'
+ pod 'iOSPhotoEditor'
+ pod 'Toast-Swift'
 
 end
 
