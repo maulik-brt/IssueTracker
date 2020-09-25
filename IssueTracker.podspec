@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'IssueTracker'
-  s.version          = '1.0.6'
+  s.version          = '1.0.7'
   s.summary          = 'IssueTracker lets a user select an test.'
  
   s.description      =  "A facebook like report a problem including media and markup images"
