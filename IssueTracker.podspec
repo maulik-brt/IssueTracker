@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'IssueTracker'
-  s.version          = '1.0.7'
+  s.version          = '1.0.8'
   s.summary          = 'IssueTracker lets a user select an test.'
  
   s.description      =  "A facebook like report a problem including media and markup images"
@@ -13,8 +13,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '12.0'
      
        s.framework  = "UIKit"
-
-       s.dependency 'Alamofire'
        s.dependency 'iOSPhotoEditor'
        s.dependency 'IBAnimatable'
        s.dependency 'SVProgressHUD'
