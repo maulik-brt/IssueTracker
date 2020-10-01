@@ -12,6 +12,7 @@ import CoreServices
 import iOSPhotoEditor
 import IQKeyboardManagerSwift
 import Reachability
+import MobileCoreServices
 
 internal class  BWFeedbackViewController: UIViewController {
     
