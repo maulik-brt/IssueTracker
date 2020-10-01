@@ -72,7 +72,7 @@ internal class  BWFeedbackViewController: UIViewController {
             displayTost(strMessage: "Please add subject about your issue.")
             return
         }
-        
+                
         var dict = ["subject":self.txtSubject.text as Any,
                     "description":self.txtReport.text as Any,
                     "project_id":strProject_id,
@@ -88,25 +88,28 @@ internal class  BWFeedbackViewController: UIViewController {
         
         if self.imgReport.image != nil && self.txtReport.text.isEmpty == false{
             dict["image"] = self.imgReport.image
-            BWWebAPI.sharedService.uploadMedia(dict) { (result) in
+            BWWebAPI.sharedService.uploadMediaNew(dict) { (result) in
                 print(result)
-                self.dismiss(animated: true) {
-                    
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true) {}
                 }
             } onFailure: { (Error) in
-                print(Error.localizedDescription)
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true) {}
+                }
             }
         }else{
             
-            BWWebAPI.sharedService.createIssue(dict, token: "") { (result) in
+            BWWebAPI.sharedService.createIssueNew(dict, token: "") { (result) in
                 print(result)
-                self.dismiss(animated: true) {
-                    
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true) {}
                 }
+                
             } onFailure: { (Error) in
                 print(Error.localizedDescription)
-                self.dismiss(animated: true) {
-                    
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true) {}
                 }
             }
         }

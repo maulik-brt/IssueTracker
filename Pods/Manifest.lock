@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (5.2.2)
   - IBAnimatable (6.1.0)
   - iOSPhotoEditor (1.0.0)
   - IQKeyboardManagerSwift (6.5.6)
@@ -8,7 +7,6 @@ PODS:
   - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.2)
   - IBAnimatable
   - iOSPhotoEditor
   - IQKeyboardManagerSwift
@@ -18,7 +16,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - IBAnimatable
     - iOSPhotoEditor
     - IQKeyboardManagerSwift
@@ -27,7 +24,6 @@ SPEC REPOS:
     - Toast-Swift
 
 SPEC CHECKSUMS:
-  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   IBAnimatable: 99dddd4c0625884a301ba3ecbc1615f8a390368e
   iOSPhotoEditor: 2951f35246a31dcb428b6292248a9c065582d03e
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
@@ -35,6 +31,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 99547466020be6ff9f9175bebbd77aa7247b8463
+PODFILE CHECKSUM: fe27bb56f5f1619d3c7c15726c83d2b445bacb2a
 
 COCOAPODS: 1.10.0.rc.1
