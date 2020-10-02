@@ -12,7 +12,6 @@ import CoreServices
 import iOSPhotoEditor
 import IQKeyboardManagerSwift
 import Reachability
-import SVProgressHUD
 import MobileCoreServices
 
 internal class  BWFeedbackViewController: UIViewController {
@@ -74,9 +73,7 @@ internal class  BWFeedbackViewController: UIViewController {
             displayTost(strMessage: "Please add subject about your issue.")
             return
         }
-        
-        SVProgressHUD.show(withStatus: "Sending...")
-        
+                
         var dict = ["subject":self.txtSubject.text as Any,
                     "description":self.txtReport.text as Any,
                     "project_id":strProject_id,
@@ -94,12 +91,10 @@ internal class  BWFeedbackViewController: UIViewController {
             dict["image"] = self.imgReport.image
             BWWebAPI.sharedService.uploadMediaNew(dict) { (result) in
                 print(result)
-                SVProgressHUD.dismiss()
                 DispatchQueue.main.async {
                     self.dismiss(animated: true) {}
                 }
             } onFailure: { (Error) in
-                SVProgressHUD.dismiss()
                 DispatchQueue.main.async {
                     self.dismiss(animated: true) {}
                 }
@@ -108,14 +103,12 @@ internal class  BWFeedbackViewController: UIViewController {
             
             BWWebAPI.sharedService.createIssueNew(dict, token: "") { (result) in
                 print(result)
-                SVProgressHUD.dismiss()
                 DispatchQueue.main.async {
                     self.dismiss(animated: true) {}
                 }
                 
             } onFailure: { (Error) in
                 print(Error.localizedDescription)
-                SVProgressHUD.dismiss()
                 DispatchQueue.main.async {
                     self.dismiss(animated: true) {}
                 }
