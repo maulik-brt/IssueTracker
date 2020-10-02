@@ -25,7 +25,7 @@ public class BWFeedback {
         let viewController = storyboard.instantiateViewController(withIdentifier: "BWFeedbackViewController") as! BWFeedbackViewController
         viewController.strProject_id = projectID
         viewController.strBuild_Number = Build_Number
-        viewController.strDevice_Info = Device_Info
+        viewController.strDevice_Info = "\(Device_Info) \(getOSInfo())"
         viewController.strReportedBy = ReportedBy
         viewController.strEnvironment = Environment
         viewController.strFixed_version_id = fixed_version_id
@@ -36,4 +36,9 @@ public class BWFeedback {
             
         }
     }
+}
+
+func getOSInfo()->String {
+    let os = ProcessInfo().operatingSystemVersion
+    return String(os.majorVersion) + "." + String(os.minorVersion) + "." + String(os.patchVersion)
 }

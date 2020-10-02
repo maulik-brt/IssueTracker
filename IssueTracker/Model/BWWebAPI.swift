@@ -7,6 +7,7 @@
 
 import Foundation
 import Toast_Swift
+import SVProgressHUD
 
 class BWWebAPI {
     
@@ -15,6 +16,8 @@ class BWWebAPI {
     
     func uploadMediaNew(_ Dict: [String: AnyObject],onSuccess: @escaping (AnyObject) -> (), onFailure: @escaping (Error) -> ())-> Void {
         
+        SVProgressHUD.show(withStatus: "Sending...")
+
         let isVideo = Dict["isVideo"] as! Bool
         var data = Data()
         var strurl = ""
@@ -87,6 +90,8 @@ class BWWebAPI {
 
     func createIssueNew(_ Dict: [String: AnyObject], token: String, onSuccess: @escaping (AnyObject) -> (), onFailure: @escaping (Error) -> ())-> Void {
         
+        SVProgressHUD.show(withStatus: "Sending...")
+
         var dictUpload = [String : String]()
         let isVideo = Dict["isVideo"] as! Bool
 
@@ -161,10 +166,14 @@ class BWWebAPI {
                         }
                     }
                 } else {
-                    onFailure(error!)
+                    if let err = error {
+                        onFailure(err)
+                    }
                 }
             } else {
-                onFailure(error!)
+                if let err = error {
+                    onFailure(err)
+                }
             }
             
             
