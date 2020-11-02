@@ -8,6 +8,20 @@
 
 1.0.18
 
+## Requirements
+
+- iOS 11.0+ or later
+- Xcode 10.5 or later
+- Mac OS Catelina v10.15.4 or later
+
+## Installation
+
+#### CocoaPods
+You can use [CocoaPods](http://cocoapods.org/) to install `YourLibrary` by adding it to your `Podfile`:
+
+```
+pod 'IssueTracker'
+```
 ## Features
 
 IssueTrackers helps to report a problem in iOS application.
@@ -23,19 +37,4 @@ You just need `project id` and roadmap id which called `target version`
 let versionNumber = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
 let buildNumber = Bundle.main.infoDictionary!["CFBundleVersion"] as! String
 BWFeedback.shared.present(self, "XXXX", "\(versionNumber)(\(buildNumber))", "iOS", "XXXX", env, "160")
-```
-
-## Requirements
-
-- iOS 11.0+ or later
-- Xcode 10.5 or later
-- Mac OS Catelina v10.15.4 or later
-
-## Installation
-
-#### CocoaPods
-You can use [CocoaPods](http://cocoapods.org/) to install `YourLibrary` by adding it to your `Podfile`:
-
-```
-pod 'IssueTracker'
 ```
